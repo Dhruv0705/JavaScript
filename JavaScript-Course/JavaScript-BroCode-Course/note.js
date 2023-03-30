@@ -11,6 +11,8 @@
         - Constants
         - Math Functions
         - Hypotenuse Calculator
+        - Counter Program
+        - Random Number Generator
 */
 
 
@@ -322,8 +324,162 @@ function HypotenuseCalculator () {
 
 } HypotenuseCalculator();
 
+// Counter Program
+function CounterProgram () {
+    count = 0;
+
+    document.getElementById("DecrementCounterButton").onclick = function () {
+        count -=1;
+        document.getElementById("CounterLabel").innerHTML = count;
+    }
+
+    document.getElementById("IncrementCounterButton").onclick = function () {
+        count +=1;
+        document.getElementById("CounterLabel").innerHTML = count;
+    }
+
+    document.getElementById("ResetCounterButton").onclick = function () {
+        count = 0;
+        document.getElementById("CounterLabel").innerHTML = count;
+    }
+
+} CounterProgram();
+
+// Random Number Generator
+function RandomNumberGenerator () {
+
+    let x;
+    let y;
+    let z;
+
+    document.getElementById("RandomNumberGeneratorButton").onclick = function () {
+
+        x = Math.floor(Math.random() * 100) + 1;
+        y = Math.floor(Math.random() * 100) + 1;
+        z = Math.floor(Math.random() * 100) + 1;
+
+        document.getElementById("XLabel").innerHTML = "X: " + x;
+        document.getElementById("YLabel").innerHTML = "Y: " + y;
+        document.getElementById("ZLabel").innerHTML = "Z: " + z;
+   
+    }
+
+} RandomNumberGenerator();
+
+/* String Properties and Methods
+
+    - String Properties and Methods are used to manipulate strings:  
+        - .length - Returns the length of a string.
+        - .indexOf() - Returns the index of (the position of) the first occurrence of a specified text in a string.
+        - .lastIndexOf() - Returns the index of the last occurrence of a specified text in a string.
+        - .search() - Searches a string for a specified value, and returns the position of the match.
+        - .charAt() - Returns the character at the specified index (position) in a string.
+        - .concat() - Joins two or more strings, and returns a new joined strings. [string1, string2, ..., stringX]
+        - .trim() - Removes whitespace from both sides of a string.
+        - .toUpperCase() - Converts a string to uppercase letters.
+        - .toLowerCase() - Converts a string to lowercase letters.
+        - .split() - Splits a string into an array of substrings.
+        - .slice() - Extracts a part of a string and returns a new string. [start, end]
+        - .replace() - Searches a string for a specified value, or a regular expression, and returns a new string where the specified values are replaced. [oldValue, newValue]
+        - .replaceAll() - Searches a string for a specified value, or a regular expression, and returns a new string where the specified values are replaced. [oldValue, newValue]
+
+*/
+function StringPropertiesAndMethods () {
+
+    let str = "Hello World World!";
+
+    let strLength = str.length;
+    let strIndex = str.indexOf("World");
+    let strLastIndex = str.lastIndexOf("World");
+    let strSearch = str.search("World");
+
+    // Method Chaining
+    let strCharAt = str.charAt(9).toUpperCase().trim();
+
+    let strConcat = str.concat(" ", "I am a string!");
+    let strTrim = str.trim();
+    let strUpperCase = str.toUpperCase();
+    let strLowerCase = str.toLowerCase();
+    let strSplit = str.split(" ");
+    let strSlice = str.slice(6, 11);
+    let strSliceIndexofFirst = str.slice(0, str.indexOf(" "));
+    let strSliceIndexofLast = str.slice(str.lastIndexOf(" ") + 1);
+
+    let phoneNumber = "123-456-7890";
+    let strReplace = phoneNumber.replace("-", ".");
+    let strReplaceAll = phoneNumber.replaceAll("-", ".");
+
+    document.getElementById("String").innerHTML = "String : " + str;
+
+    document.getElementById("StringLength").innerHTML = "String Length: " + strLength;
+    document.getElementById("StringIndexOf").innerHTML = "String Index Of 'World': " + strIndex;
+    document.getElementById("StringLastIndexOf").innerHTML = "String Last Index Of 'World': " + strLastIndex;
+    document.getElementById("StringSearch").innerHTML = "String Search 'World': " + strSearch;
+    document.getElementById("StringCharAt").innerHTML = "String Char  '9': " + strCharAt;
+
+    document.getElementById("StringConcat").innerHTML = "String Concat at 'end or str' : " + strConcat;
+    document.getElementById("StringTrim").innerHTML = "String Trim: " + strTrim;
+    document.getElementById("StringUpperCase").innerHTML = "String Upper Case: " + strUpperCase;
+    document.getElementById("StringLowerCase").innerHTML = "String Lower Case: " + strLowerCase;
+    document.getElementById("StringSplit").innerHTML = "String Split: " + strSplit;
+    document.getElementById("StringSlice").innerHTML = "String Slice: " + strSlice;
+    document.getElementById("StringSliceIndexofFirst").innerHTML = "String Slice Index Of First: " + strSliceIndexofFirst;
+    document.getElementById("StringSliceIndexofLast").innerHTML = "String Slice Index Of Last: " + strSliceIndexofLast;
+
+    document.getElementById("PhoneNumber").innerHTML = "Phone Number: " + phoneNumber;
+    document.getElementById("StringReplace").innerHTML = "String Replace: " + strReplace;
+    document.getElementById("StringReplaceAll").innerHTML = "String Replace All: " + strReplaceAll;
+
+} StringPropertiesAndMethods();
+
+/* Loops
+
+    - Loops are used to execute the same block of code again and again, as long as a certain condition is met.
+    - Loops are handy, if you want to run the same code over and over again, each time with a different value.
+    - Loops are often used in programming to repeat a specific block of code.
+    - JavaScript supports different kinds of loops:
+        - for - loops through a block of code a number of times
+        - for/in - loops through the properties of an object
+        - for/of - loops through the values of an iterable object
+        - if/else - executes a block of code, if a specified condition is true
+        - switch - marks a block of code to be executed, depending on different cases
+        - while - loops through a block of code while a specified condition is true
+        - do/while - also loops through a block of code while a specified condition is true
+*/
 
 
+/* If Statement 
 
+    - The if statement executes a statement if a specified condition is truthy. 
+        If the condition is falsy, another statement can be executed.
 
+    - Syntax:
+        if (condition) {
+            statement_1;
+        } else {
+            statement_2;
+        }            
+*/
+
+function IfElse () {
+
+    let age = 65;
+
+    if (age >= 65) {
+        document.getElementById("IfElse").innerHTML = "You are a senior citizen!";
+    } 
+    else if (age < 65 && age >= 18) {
+        document.getElementById("IfElse").innerHTML = "You are an adult!";
+    }
+    else if (age < 18 && age >= 0) {
+        document.getElementById("IfElse").innerHTML = "You are a child!";
+    }
+    else if (age < 0) {
+        document.getElementById("IfElse").innerHTML = "You are not born yet!";
+    }
+    else {
+        document.getElementById("IfElse").innerHTML = "You are not a senior citizen!";
+    }
+
+} IfElse();
 
