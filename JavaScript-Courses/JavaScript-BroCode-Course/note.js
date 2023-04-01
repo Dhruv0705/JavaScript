@@ -13,6 +13,8 @@
         - Hypotenuse Calculator
         - Counter Program
         - Random Number Generator
+        - String Properties and Methods
+        - If Else Statements
 */
 
 
@@ -461,25 +463,39 @@ function StringPropertiesAndMethods () {
         }            
 */
 
-function IfElse () {
+function IfElseStatements () {
 
     let age = 65;
-
-    if (age >= 65) {
-        document.getElementById("IfElse").innerHTML = "You are a senior citizen!";
+    let online = true;
+    if (age >= 65 && online == true) {
+        document.getElementById("IfElseStatements").innerHTML = "You are a senior citizen! And you are online!";
     } 
     else if (age < 65 && age >= 18) {
-        document.getElementById("IfElse").innerHTML = "You are an adult!";
+        document.getElementById("IfElseStatements").innerHTML = "You are an adult!";
     }
     else if (age < 18 && age >= 0) {
-        document.getElementById("IfElse").innerHTML = "You are a child!";
+        document.getElementById("IfElseStatements").innerHTML = "You are a child!";
     }
-    else if (age < 0) {
-        document.getElementById("IfElse").innerHTML = "You are not born yet!";
+    else if (age < 0 ) {
+        document.getElementById("IfElseStatements").innerHTML = "You are not born yet!";
     }
     else {
-        document.getElementById("IfElse").innerHTML = "You are not a senior citizen!";
+        document.getElementById("IfElseStatements").innerHTML = "You are not a senior citizen!";
     }
 
-} IfElse();
+} IfElseStatements();
 
+/* Check Box
+
+*/
+
+function CheckBox () {
+
+    document.getElementById("CheckBoxButton").onclick = function () {
+        
+        const checkBox = document.getElementById("CheckBox");
+        if (checkBox.checked) {
+            document.getElementById("CheckBoxLabel").innerHTML = "Selected";
+        }
+    }
+}
