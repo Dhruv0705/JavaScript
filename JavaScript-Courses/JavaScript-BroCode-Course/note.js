@@ -15,6 +15,15 @@
         - Random Number Generator
         - String Properties and Methods
         - If Else Statements
+        - Check Properties
+        - Radio Properties
+        - Switch Statements
+        - And Or Operators
+        - Not Operator
+        - Ternary Operator
+        - While Loops
+        - Do While Loops
+        - For Loops
 */
 
 
@@ -485,17 +494,360 @@ function IfElseStatements () {
 
 } IfElseStatements();
 
-/* Check Box
-
-*/
+// Check Properties
 
 function CheckBox () {
 
     document.getElementById("CheckBoxButton").onclick = function () {
         
         const checkBox = document.getElementById("CheckBox");
+        
         if (checkBox.checked) {
-            document.getElementById("CheckBoxLabel").innerHTML = "Selected";
+            document.getElementById("CheckBoxLabel").innerHTML = "Check Box Selected";
+        }
+        else {
+            document.getElementById("CheckBoxLabel").innerHTML = "Check Box Not Selected";
         }
     }
-}
+} CheckBox();
+
+// Radio Properties
+function RadioButton () {
+
+    document.getElementById("RadioButtonButton").onclick = function () {
+        
+        const VisaRadioButton = document.getElementById("VisaRadioButton");
+        const MasterCardRadioButton = document.getElementById("MasterCardRadioButton");
+        const AmericanExpressRadioButton = document.getElementById("AmericanExpressRadioButton");
+
+        if (VisaRadioButton.checked) {
+            document.getElementById("RadioButtonLabel").innerHTML = "Visa Card Selected";
+        }
+        else if (MasterCardRadioButton.checked) {
+            document.getElementById("RadioButtonLabel").innerHTML = "MasterCard Card Selected";
+        }
+        else if (AmericanExpressRadioButton.checked) {
+            document.getElementById("RadioButtonLabel").innerHTML = "American Express Card Selected";
+        }
+        else {
+            document.getElementById("RadioButtonLabel").innerHTML = "No Card Selected";
+        }
+    }
+    
+} RadioButton();
+
+/* Switch Statement
+
+    - The switch statement executes a block of code depending on different cases.
+    - The switch statement is a part of JavaScript's "Conditional" Statements, which are used to perform different actions based on different conditions.
+    - Use the switch statement to select one of many code blocks to be executed.
+    - This is the perfect solution for long, nested if/else statements.
+    - Syntax:
+        switch(expression) {
+            case x:
+                // code block
+                break;
+            case y:
+                // code block
+                break;
+            default:
+                // code block
+        }
+*/
+
+function SwitchStatement () {
+    
+    let day = new Date().getDay();
+    let dayName;
+
+    switch (day) {
+        case 0:
+            dayName = "Sunday";
+            break;
+        case 1:
+            dayName = "Monday";
+            break;
+        case 2:
+            dayName = "Tuesday";
+            break;
+        case 3:
+            dayName = "Wednesday";
+            break;
+        case 4:
+            dayName = "Thursday";
+            break;
+        case 5:
+            dayName = "Friday";
+            break;
+        case 6:
+            dayName = "Saturday";
+            break;
+        default:
+            dayName = "Unknown Day";
+    }
+
+    let grade = "B";
+    let gradeName;
+
+    switch (grade) {
+        case "A":
+            gradeName = "Excellent!";
+            break;
+        case "B":
+            gradeName = "Good!";
+            break;
+        case "C":
+            gradeName = "Fair!";
+            break;
+        case "D":
+            gradeName = "Poor!";
+            break;
+        case "F":
+            gradeName = "Fail!";
+            break;
+        default:
+            gradeName = "Unknown Grade!";
+    }
+    
+    document.getElementById("SwitchStatementDate").innerHTML = "Today is " + dayName;
+    document.getElementById("SwitchStatementGrade").innerHTML = gradeName;
+    
+} SwitchStatement();
+
+/* And Or Operators
+
+    - Gives us the ability to combine two or more conditions.
+    - The && operator (logical and) BOTH conditions MUST be true.
+    - The || operator (logical or) EITHER conditions CAN be true.
+
+*/
+
+function AndOrOperators () {
+
+    let temperature = 75;
+    let sunny = false;
+
+    if (temperature >= 70 && temperature <= 80 && sunny) {
+        document.getElementById("AndOperator").innerHTML = "The weather is good!";
+    }
+    else {
+        document.getElementById("AndOperator").innerHTML = "The weather is bad!";
+    }
+
+    let age = 65;
+
+    if (age <= 18 || age >= 65) {
+        document.getElementById("OrOperator").innerHTML = "You are either a child or a senior citizen!";
+    }
+    else {
+        document.getElementById("OrOperator").innerHTML = "You are neither a child nor a senior citizen!";
+    }
+
+} AndOrOperators();
+
+/* Not Operator
+
+    - Gives us the ability to reverse a condition.
+        True -> False or False -> True
+    - The ! operator (logical not) reverses the value of a condition.
+*/
+
+function NotOperator () {
+
+    let age = 65;
+
+
+    if (!(age >= 18 && age <= 65)) {
+        document.getElementById("NotOperator").innerHTML = "You are not an adult!";
+    }
+
+    else {
+        document.getElementById("NotOperator").innerHTML = "You are an adult!";
+    }
+
+} NotOperator();
+
+/* Ternary Operator
+
+    - Gives us the ability to write a conditional statement in one line.
+    - Syntax:
+        condition ? expression_1 : expression_2;
+        
+        If condition is true, the operator returns the value of expression_1; otherwise, it returns the value of expression_2.
+*/
+function TernaryOperator () {
+    
+    let age = 65;
+    let message = (age >= 65) ? "You are a senior citizen!" : "You are not a senior citizen!";
+    document.getElementById("TernaryOperator").innerHTML = message;
+    
+} TernaryOperator();
+
+/* While Loop 
+
+    - The while loop loops through a block of code as long as a specified condition is true or infinite number of times.
+    - The while loop repeats statements while a condition is true.
+    - Syntax:
+        while (condition) {
+            // code block to be executed
+        }
+*/
+function WhileLoop () {
+    
+    let i = 0;
+    let text = "";
+    
+    // While i is less than 10, add 1 to i and add the number to the text variable.
+    while (i < 10) {
+        text += "<br>The number is: " + i;
+        i++;
+    }
+    
+    document.getElementById("WhileLoop").innerHTML = text;
+    
+} WhileLoop();
+
+/* Do While Loop
+
+    - The do/while loop is a variant of the while loop.
+    - This loop will execute the code block once, before checking if the condition is true, then it will repeat the loop as long as the condition is true.
+    - Syntax:
+        do {
+            // code block to be executed
+        }
+        while (condition);
+*/
+
+function DoWhileLoop () {
+        
+    let userName;
+
+    do {
+        userName = prompt("Please enter your name:");
+    }
+    while (userName == null || userName == "");
+    
+    document.getElementById("DoWhileLoop").innerHTML = "Hello " +  userName;
+    
+} DoWhileLoop();
+
+/* For Loop
+
+    - The for loop loops through a block of code a certain number of times.
+    - The for loop is used when you know in advance how many times the script should run.
+    - Syntax:
+        for (statement 1; statement 2; statement 3) {
+            // code block to be executed
+        }
+*/
+
+function ForLoop () {
+    
+    // set i to 10, if i is greater than 0, subtract 1 to i, continue until i == 0 or less then 0 , and display i.
+    for (let i = 10; i > 0; i--) {
+        document.getElementById("ForLoop").innerHTML += i + "<br>";
+    }
+
+    document.getElementById("ForLoop").innerHTML += "Happy New Year!";
+
+} ForLoop();
+
+/* For In Loop
+
+    - The for/in statement loops through the properties of an object.
+    - Syntax:
+        for (variable in object) {
+            // code block to be executed
+        }
+*/
+
+function ForInLoop () {
+        
+    let person = {fname:"John", lname:"Doe", age:25};
+
+    let text = "";
+
+    // x is the property name of the object.
+    for (let x in person) {
+
+        // make text equal to the property name and the value of the property.
+        text += person[x] + " ";
+    }
+
+    document.getElementById("ForInLoop").innerHTML = text + " Years Old.";
+
+} ForInLoop();
+
+/* Break & Continue Statements
+
+    - The break statement "jumps out" or break" of a loop entirely.
+    - The continue statement "jumps over" or "skips" one iteration in the loop.
+*/
+
+function BreakContinue () {
+
+    let text = "";
+
+    // loop through 0 to 10
+    for (let i = 0; i <= 10; i++) {
+
+        // if i is equal to 8, break out of the loop.
+        if (i == 8) {
+            break;
+        }
+
+        // if i is equal to 5, skip to the next iteration.
+        if (i == 5) {
+            continue;
+        }
+
+        // add i to the text variable.
+        text += i + "<br>";
+    }
+
+    document.getElementById("BreakContinue").innerHTML = text;
+
+} BreakContinue();
+
+/* Nested Loops
+
+    - A nested loop is a loop inside a loop.
+    - The "inner loop" will be executed one time for each iteration of the "outer loop".
+*/
+
+function NestedLoops () {
+    
+    let num = "";
+
+    // i is the outer loop.
+    for (let i = 0; i <= 3; i++) {
+
+        // j is the inner loop.
+        for (let j = 0; j <= 3; j++) {
+
+            // add i and j to the text variable.
+            num += i + " " + j + "<br>";
+        }
+    }
+
+    document.getElementById("NestedLoops").innerHTML += num;
+
+} NestedLoops();
+
+function NestedLoopsRectangle () {
+    
+        let rows = document.getElementById("rows").value;
+        let columns = document.getElementById("columns").value;
+
+        document.getElementById("NestedLoopsRectangleButton").onclick = function () {
+            for (let i = 0; i < rows; i ++) { 
+                for (let j = 0; j < columns; j ++) {
+                    document.getElementById("NestedLoopsRectangle").innerHTML += j;
+                }
+            document.getElementById("NestedLoopsRectangle").innerHTML += "<br>";
+            }
+        }
+
+        document.getElementById("NestedLoopsRectangle").innerHTML += num;
+
+} NestedLoopsRectangle();
