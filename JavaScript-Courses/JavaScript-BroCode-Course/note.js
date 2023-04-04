@@ -24,6 +24,11 @@
         - While Loops
         - Do While Loops
         - For Loops
+        - For In Loops
+        - Break and Continue
+        - Nested Loops
+        - NestedLoopsRectangle
+        - Functions
 */
 
 
@@ -836,18 +841,41 @@ function NestedLoops () {
 
 function NestedLoopsRectangle () {
     
-        let rows = document.getElementById("rows").value;
-        let columns = document.getElementById("columns").value;
+    let symbols;
+    let rows;
+    let columns;
 
-        document.getElementById("NestedLoopsRectangleButton").onclick = function () {
-            for (let i = 0; i < rows; i ++) { 
-                for (let j = 0; j < columns; j ++) {
-                    document.getElementById("NestedLoopsRectangle").innerHTML += j;
-                }
-            document.getElementById("NestedLoopsRectangle").innerHTML += "<br>";
+    document.getElementById("NestedLoopsRectangleButton").onclick = function () {
+        symbols = document.getElementById("NestedLoopsRectangleSymbols").value;
+        rows = document.getElementById("NestedLoopsRectangleRows").value;
+        columns = document.getElementById("NestedLoopsRectangleColumns").value;
+
+        for (let i = 1; i <= rows; i ++) { 
+            for (let j = 1; j <= columns; j ++) {
+                document.getElementById("NestedLoopsRectangle").innerHTML += symbols;
             }
+            document.getElementById("NestedLoopsRectangle").innerHTML += "<br>";
         }
-
-        document.getElementById("NestedLoopsRectangle").innerHTML += num;
+    }
 
 } NestedLoopsRectangle();
+
+/* Functions
+
+    - A function is a block of code designed to perform a particular task.
+    - A JavaScript function is executed when "something" invokes it (calls it).
+    - Syntax:
+        function name(parameter1, parameter2, parameter3) {
+            // code to be executed
+        }
+*/
+
+function Functions () {
+    
+    function myFunction (a, b) {
+        return a * b;
+    }
+    
+    document.getElementById("Function").innerHTML = myFunction(4, 3);
+    
+} Functions();
