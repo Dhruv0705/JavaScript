@@ -37,6 +37,18 @@
         - Number Guessing Game
         - Temperature Converter
         - Arrays
+        - Array Looping
+        - Array Sorting
+        - 2D Arrays
+        - Spread Operator
+        - Rest Parameter
+        - Callback Functions
+        - Array Methods
+            - ForEach()
+            - Map()
+            - Filter()  
+            - Reduce()
+        - GradeBook Sorting
 */
 
 
@@ -1166,12 +1178,357 @@ function TemperatureConverter () {
     - Array elements are accessed using their index number:
         array_name[index]
 */
-
 function array () {
+    let fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits[0] = "Kiwi"; // Changes the first element of fruits to "Kiwi"
+    fruits[fruits.length] = "Lemon"; // Appends "Lemon" to fruits
+    fruits.push("Peach"); // Appends "Peach" to fruits
+    fruits.pop(); // Removes the last element ("Peach") from fruits
+    fruits.shift(); // Removes the first element ("Banana") from fruits
+    fruits.unshift("Strawberry"); // Adds a new element ("Peach") to fruits (at the beginning)
+    fruits.splice(2, 0, "Lemon", "Kiwi"); // Adds new elements ("Lemon" and "Kiwi") to fruits (starting at position 2)
+    fruits.splice(0, 1); // Removes the first element of fruits
+    document.getElementById("array").innerHTML = fruits;
 
-    
+    // Prints the first element (index 0) of fruits
+    document.getElementById("array").innerHTML = fruits;
 
 } array();
+
+/* Array Looping 
+
+    - The JavaScript for loop iterates through the array elements.
+    - The forEach() method calls a function (a callback function) once for each array element.
+    - The forEach() method does not execute the function for array elements without values.
+    - The map() method creates a new array by performing a function on each array element.
+*/
+function ArrayLooping () {
+
+    let fruits = ["Banana", "Orange", "Apple", "Mango"];
+    let text = "";
+    let prices = [45, 4, 9, 16, 25];
+
+    for (let i = 0; i < fruits.length; i++) {
+        text += fruits[i] + "<br>";
+    }
+
+    for (let i = prices.length - 1; i >= 0; i--) {
+        console.log(prices[i]);
+    }
+
+    for (let price in prices) {
+        document.getElementById("ArrayLoopingPrice").innerHTML +=  prices[price] + "<br>"; ;
+    }
+
+    document.getElementById("ArrayLooping").innerHTML = text;
+} ArrayLooping();
+
+/* Array Sorting 
+
+    - The sort() method sorts an array alphabetically.
+    - The reverse() method reverses the elements in an array.
+    - The sort() method can be used to sort the array in ascending and descending order.
+    - The compare function compares all the values in the array, two values at a time (a, b).
+    - When comparing 40 and 100, the sort() method calls the compare function(40, 100).
+    - The function calculates 40 - 100 (a - b), and since the result is negative (-60), the sort function will sort 40 as a value lower than 100.
+    - You can use this code snippet to experiment with numerically and alphabetically sorting:
+        let points = [40, 100, 1, 5, 25, 10];
+        document.getElementById("demo").innerHTML = points;
+        function myFunction() {
+            points.sort(function(a, b){return a - b});
+            document.getElementById("demo").innerHTML = points;
+        }
+*/
+function ArraySorting () {
+    
+    let fruits = ["Banana", "Orange", "Apple", "Mango"];
+    let points = [40, 100, 1, 5, 25, 10];
+
+    document.getElementById("ArraySorting").innerHTML = fruits.sort(); // Alphabetical order
+    document.getElementById("ArraySorting2").innerHTML = points.sort(function(a, b){return a - b}); // Ascending order
+    document.getElementById("ArraySorting3").innerHTML = fruits.sort().reverse(); // Descending order
+
+} ArraySorting();
+
+/* 2D Array
+
+    - A 2D array is an array of arrays. Multi-dimensional arrays. 
+    - A 2D array is declared as follows:
+        let array_name = [[item00, item01, ...], [item10, item11, ...], ...];
+    - The first index identifies the position of the array, and the second index identifies the position of the item in that array.
+    - Syntax:
+        let arr = [
+            [1, 2, 3],
+            
+            [4, 5, 6],
+
+            [7, 8, 9]
+
+        ];
+    - To access the elements of the myArr array, you can use the bracket notation with the index values.
+        let arr = [
+
+            [1, 2, 3], // 0
+            
+            [4, 5, 6], // 1
+
+            [7, 8, 9] // 2
+
+        ]; 
+
+        arr[0]; // Returns [1, 2, 3]
+        arr[1][2]; // Returns 6
+        arr[2][1]; // Returns 8
+    
+        [Represents X axis][Represents Y axis]
+*/
+function TwoDArray () {
+
+    let arr = [
+        [1, 2, 3],
+        
+        [4, 5, 6],
+
+        [7, 8, 9]
+
+    ];
+
+    let fruits =      [ "Apple", "Banana", "Orange", "Mango" ];
+    let vegetables =  [ "Carrot", "Potato", "Tomato", "Onion" ];
+    let meats =       [ "Beef", "Chicken", "Pork", "Fish" ];
+    let groceryList = [fruits, vegetables, meats];
+
+    groceryList[0][2] = "Peach";
+
+    for(let list of groceryList) {
+        for (let food of list ){ 
+            document.getElementById("2DArrayGroceryList").innerHTML += food + "<br>";
+        }
+    }
+
+    document.getElementById("2DArrayGrid").innerHTML = arr[1][2];
+} TwoDArray();
+
+/* Spread Operator
+
+    - The spread operator is a new addition to the set of operators in JavaScript ES6.
+    - It takes in an iterable (e.g an array) and expands it into individual elements.
+    - The spread operator is commonly used to make shallow copies of JS objects.
+    - Syntax:
+        let arr = [...iterable];
+    - The spread operator only works in-place, like in an argument to a function or in an array literal.
+    - The spread operator can be used to find the maximum value in an array.
+    - The spread operator can be used to concatenate two arrays.
+
+    - Allows an iterable such as an array or string to be expanded in places where zero or more arguments are executed or elements or variables are expected.
+        (Unpacks elements from an array into a comma-separated list or individual arguments)
+*/
+function SpreadOperator () {
+
+    let Numbers = [1,2,3,4,5,6,7,8,9,10];
+    let Numbers2 = [11,12,13,14,15,16,17,18,19,20];
+    let Numbers3 = [...Numbers, ...Numbers2];
+
+    let Class1 = ["Spongebob", "Patrick", "Squidward"];
+    let Class2 = ["Sandy", "Mr. Krabs", "Plankton"];
+    let Class3 = [...Class1, ...Class2];
+
+    document.getElementById("SpreadOperator").innerHTML = "Max number = " + Math.max(...Numbers3);
+    document.getElementById("SpreadOperator2").innerHTML = Class3;
+
+} SpreadOperator();
+
+/* Rest Parameter
+
+    - The rest parameter syntax allows us to represent an indefinite number of arguments as an array.
+    - The rest parameter is used to pass an indefinite number of parameters to a function.
+    - The rest parameter is added to the function parameters list.
+
+*/
+function RestParameter () {
+    
+    function sum(...args) {
+        let sum = 0;
+        for (let arg of args) sum += arg;
+        return sum;
+    }
+
+    document.getElementById("RestParameter").innerHTML = sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+} RestParameter();
+
+/* Callback Function
+    - A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
+    - Ensures that a function is not going to run before a task is completed 
+    - Helps to handle asynchronous calls and prevent errors and potential bugs
+    - Used in functions like forEach, map, filter, sort, etc.
+    - Syntax:
+        function myDisplays(some) {
+            document.getElementById("CallbackFunction").innerHTML = some;
+        }
+        function myCalculator(num1, num2, myCallback) {
+            let sum = num1 + num2;
+            myCallback(sum);
+        }
+        myCalculator(5, 5, myDisplays);
+*/
+function CallbackFunction () {
+    
+    Sum(2,3, DisplayDOM);
+    
+    function Sum(x, y, Callback) {
+        let sum = x + y;
+        Callback(sum);
+    }
+
+    function displayConsole(sum) {
+        console.log(sum);
+    }
+
+    function DisplayDOM(sum) {
+        document.getElementById("CallbackFunction").innerHTML = sum;
+    }
+
+} CallbackFunction();
+
+/* Array Methods
+
+    array.forEach() - Calls a function for each element in the array.
+        Executes a provided callback function once for each array element.
+        Syntax:
+            array.forEach(function(currentValue, index, arr), thisValue)
+            currentValue - Required. The value of the current element
+            index - Optional. The array index of the current element
+            arr - Optional. The array object the current element belongs to
+            thisValue - Optional. A value to be passed to the function to be used as its "this" value.
+
+    array.map() - Creates a new array with the results of calling a function for every array element.
+        Creates a new array populated with the results of calling a provided function on every element in the calling array.
+        Executes a provided callback function once for each array element, in order, and constructs a new array from the results.
+        Syntax:
+            array.map(function(currentValue, index, arr), thisValue)
+    
+    array.filter() - Creates a new array with all elements that pass the test implemented by the provided function.
+        Creates a new array with all elements that pass the test implemented by the provided function.
+        Syntax:
+            array.filter(function(currentValue, index, arr), thisValue)
+            
+    array.reduce() - Executes a reducer function (that you provide) on each element of the array, resulting in a single output value.
+        Executes a reducer function (that you provide) on each element of the array, resulting in a single output value.
+        Syntax:
+            array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+            total - Required. The initialValue, or the previously returned value of the function
+            currentValue - Required. The value of the current element
+            currentIndex - Optional. The array index of the current element
+            arr - Optional. The array object the current element belongs to
+            initialValue - Optional. A value to be passed to the function as the initial value
+    
+    array.every() - Checks if every element in an array pass a test (provided as a function).
+        Checks if every element in an array pass a test (provided as a function).
+        Syntax:
+            array.every(function(currentValue, index, arr), thisValue)
+
+*/
+function ArrayMethods () {
+    
+    function ForEach () {
+        
+        let Students = ["spongebob", "patrick", "squidward", "sandy"];
+        Students.forEach(Capitalize);
+        Students.forEach(DisplayDOM);
+
+        function Capitalize(value, index, array) {
+            array[index] = value[0].toUpperCase() + value.substring(1);
+        }
+
+        function DisplayDOM(value, index, array) {
+            document.getElementById("ArrayMethodsForEach").innerHTML += value + "<br>";
+        }
+    }
+
+    function Map() {
+
+        let Numbers = [1,2,3,4,5,6,7,8,9,10];
+        let Squares = Numbers.map(Square);
+        let Cubes = Numbers.map(Cube);
+
+        Squares.forEach(DisplayDOM);
+        Cubes.forEach(DisplayDOM);
+
+        function Square(Element) {
+            return Element * Element;
+        }
+
+        function Cube(Element) {
+            return Math.pow(Element, 3);
+        }
+
+        function DisplayDOM(Element){
+            document.getElementById("ArrayMethodsMap").innerHTML += Element + "<br>";
+        }
+    }
+
+    function Filter(){
+        let ages = [12, 8, 90, 21, 32, 33, 16, 40];
+        let adults = ages.filter(checkAdult);
+        adults.sort().forEach(DisplayDOM);
+
+        function checkAdult(age) {
+            return age >= 18;
+        }
+
+        function DisplayDOM(Element){
+            document.getElementById("ArrayMethodsFilter").innerHTML += Element + "<br>";
+        }
+    }
+
+    function Reduce() {
+        let Prices = [1.99, 2.99, 3.99, 4.99, 5.99];
+        let Total = Prices.reduce(CheckOut);
+
+        DisplayDOM(Total);
+
+        function CheckOut(Sum, Value) {
+            return Sum + Value;
+        }
+        
+        function DisplayDOM(Element){
+            document.getElementById("ArrayMethodsReduce").innerHTML += "The Total is: $" + Element + "<br>";
+        }
+    }
+
+    ForEach();
+    Map();
+    Filter();
+    Reduce();
+
+} ArrayMethods();
+
+/* GradeBook Sorting 
+*/
+function GradeBookSorting () {
+
+    let Grades = [100, 50, 75, 80, 90, 95, 85, 60, 70, 65];
+    Grades = Grades.sort(AscendingOrder);
+    Grades.forEach(DisplayDOM);
+    Grades = Grades.sort(DescendingOrder);
+    Grades.forEach(DisplayDOM);
+
+    function AscendingOrder(a, b) {
+        return a - b;
+    }
+
+    function DescendingOrder(a, b) {
+        return b - a;
+    }
+
+    function DisplayDOM(Element){
+        document.getElementById("GradeBookSorting").innerHTML += Element + "<br>";
+    }
+} GradeBookSorting();
+
+
+
 
 
 
