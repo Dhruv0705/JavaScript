@@ -30,6 +30,13 @@
         - NestedLoopsRectangle
         - Functions
         - Return Statement
+        - TernaryOperator
+        - Variable Scope
+        - Template Literals
+        - ToLocaleString
+        - Number Guessing Game
+        - Temperature Converter
+        - Arrays
 */
 
 
@@ -870,7 +877,6 @@ function NestedLoopsRectangle () {
             // code to be executed
         }
 */
-
 function Functions () {
     
     function StartProgram() {
@@ -880,7 +886,6 @@ function Functions () {
         HappyBirthday(Name, Age);
     }
     
-
     function HappyBirthday (Name, Age) {
         document.getElementById("HappyBirthday").innerHTML = "Happy Birthday to you!";
         document.getElementById("HappyBirthday2").innerHTML += "<br>Happy Birthday to you!";
@@ -899,18 +904,276 @@ function Functions () {
     - Syntax:
         return expression;
 */
-
 function ReturnStatement () {
     
     let area;
     let width;
     let height;
 
-    function AreaOfRectangle (width, height) {
-        document.getElementById("Area").innerHTML = 
-        
-    document.getElementById("ReturnStatement").innerHTML = Add(5, 10);
-    
-    } 
+    function calculateArea (width, height) {
+        return width * height;
+    }
 
-}ReturnStatement();
+    document.getElementById("ReturnStatementButton").onclick = function () {
+        width = document.getElementById("ReturnStatementWidth").value;
+        height = document.getElementById("ReturnStatementHeight").value;
+        area = calculateArea(width, height);
+        document.getElementById("ReturnStatement").innerHTML = "The area is " + area;
+    } 
+} ReturnStatement();
+
+/* Ternary Operator
+
+    - The conditional (ternary) operator is the only JavaScript operator that takes three operands.
+    - This operator is frequently used as a shortcut for the if statement.
+    - Syntax:
+        variableName = (condition) ? value1:value2
+        returns value1 if condition is true, and value2 if condition is false.
+*/ 
+function TernaryOperator () {
+        
+    let adult = checkAge(21);
+    checkWinner(false);
+
+    function checkAge(age) {
+        /*
+        if (age >= 18) {
+            return true;
+        }
+        else {
+            return false;
+        }
+        */
+        return (age >= 18) ? true : false ;
+    }
+
+    document.getElementById("TernaryOperatorAge").innerHTML = "You are an adult: " + adult;
+    
+    function checkWinner (isWinner) {
+        /*
+        if (isWinner) {
+            return "Winner";
+        }
+        else {
+            return "Loser";
+        }
+        */
+        return (isWinner) ? "Winner" : "Loser";
+    }
+
+    document.getElementById("TernaryOperatorWinner").innerHTML = "You are a: " + checkWinner(true);
+} TernaryOperator();
+
+/* Variable Scope
+
+    - In JavaScript there are two types of scope:
+        - Local scope
+        - Global scope
+    - JavaScript has function scope: Each function creates a new scope.
+    - Scope determines the accessibility (visibility) of these variables.
+    - Variables defined inside a function are not accessible (visible) from outside the function.
+    - Local variables have Function scope: They can only be accessed from within the function.
+    - Global variables have Global scope: They can be accessed (used) from anywhere in the JavaScript program.
+    - Variables declared Globally (outside any function) have Global scope.
+    - Variables declared Locally (inside a function) have Local scope.
+
+    let = variables declared inside a block {} cannot be accessed from outside the block.
+    var = variables are limited to a function (){} or global scope.
+
+    global variables = is declared outside any function
+    local variables = is declared within a function
+
+    var will change the website global variable
+*/
+
+function VariableScope () {
+    
+    let globalVariable = "Global Variable";
+
+    document.getElementById("VariableScopeGlobalVariable").innerHTML = globalVariable;
+
+    document.getElementById("VariableScopeButton").onclick = function () {
+        let localVariable = "Local Variable";
+        document.getElementById("VariableScopeLocalVariable").innerHTML = localVariable;
+    }
+    
+} VariableScope();
+
+/* Template Literal
+    - Template literals are string literals allowing embedded expressions.
+    - You can use multi-line strings and string interpolation features with them.
+    - Template literals are enclosed by the backtick (` `) (grave accent) character instead of double or single quotes.
+    - Template literals can contain placeholders. These are indicated by the dollar sign and curly braces (${expression}).
+    - The expressions in the placeholders and the text between the backticks (` `) get passed to a function.
+    - The default function just concatenates the parts into a single string.
+
+    - Delimited with (`) instead of double or single quotes also embedded variables and expressions.
+
+    - Syntax:
+        `string text`
+        `string text line 1
+        string text line 2`
+        `string text ${expression} string text`
+        tag `string text ${expression} string text`
+*/
+
+function TemplateLiterals () {
+        
+    let name = "Dhruv";
+    let age = 21;
+    let job = "Student";
+    let state = "Alabama";
+
+    document.getElementById("TemplateLiterals").innerHTML = `Hello, my name is ${name}. I am ${age} years old. I am a ${job}. I live in ${state}.`;
+} TemplateLiterals();
+
+/* toLocaleString()
+
+    - The toLocaleString() method converts a Date object into a string, using locale settings.
+    - The default language depends on the locale setup on your computer.
+    - The toLocaleString() method returns a string with a language sensitive representation of this date.
+    
+    - Returns a string with a language sensitive representation of this date.
+    - Syntax:
+        dateObj.toLocaleString()
+        dateObj.toLocaleString(locales)
+        dateObj.toLocaleString(locales, {options})
+
+    - Parameters:
+        locales = Optional. A string with a BCP 47 language tag, or an array of such strings.
+        options = Optional. An object with some or all of the following properties:
+            - localeMatcher
+            - timeZone
+            - hour12
+            - formatMatcher
+            - weekday
+            - era
+                - 
+
+*/
+function ToLocaleString () {
+
+    let date = new Date();
+    let date2 = new Date("2020-01-01");
+    let myNum = 123456.789;
+    let percent = 0.1234;
+    let temp = 22.5;
+
+    document.getElementById("toLocaleString").innerHTML = date.toLocaleString();
+    document.getElementById("toLocaleString2").innerHTML = date2.toLocaleString();
+    document.getElementById("toLocaleString3").innerHTML = myNum.toLocaleString("en-US"); // US English uses comma as decimal separator and period for thousands
+    document.getElementById("toLocaleString4").innerHTML = myNum.toLocaleString("hi-IN"); // Hindi Indian English uses lakhs and crores for thousands and millions
+    document.getElementById("toLocaleString5").innerHTML = myNum.toLocaleString("en-US", {style: "currency", currency: "USD"}); // US Dollar
+    document.getElementById("toLocaleString6").innerHTML = percent.toLocaleString(undefined, {style: "percent"}); //  
+    document.getElementById("toLocaleString7").innerHTML = temp.toLocaleString({style: "unit", unit: "celsius" }); // 
+} ToLocaleString();
+
+/* Number Guessing Game */
+
+function NumberGuessingGame () {
+
+    const answer = Math.floor(Math.random() * 10) + 1;
+    let guesses = 0;
+
+    document.getElementById("NumberGuessingGameButton").onclick = function () {
+        let guess = document.getElementById("NumberGuessingGameGuesses").value;
+        guesses++;
+        if (guess == answer) {
+            document.getElementById("NumberGuessingGame").innerHTML = `You guessed the number ${answer} in ${guesses} guesses!`;
+        }
+        else if (guess > answer) {
+            document.getElementById("NumberGuessingGame").innerHTML = "Too high!";
+        }
+        else if (guess < answer) {
+            document.getElementById("NumberGuessingGame").innerHTML = "Too low!";
+        }
+    }
+
+} NumberGuessingGame();
+
+/* Temperature Converter 
+
+    Number - Coverts a string to a number.
+    Degree Symbol - Press and hold the Alt key and type 0176 on the numeric keypad.
+*/
+
+function TemperatureConverter () {
+    let temp ;
+    let Celsius;
+    let Fahrenheit;
+    let Kelvin;
+
+    function ToCelsius(temp) {
+        return (5/9) * (temp - 32);
+    }
+
+    function ToFahrenheit(temp) {
+        return (temp * 9/5) + 32;
+    }
+
+    function ToKelvin(temp) {
+        return (temp + 273.15);
+    }
+
+    document.getElementById("TemperatureConverterButton").onclick = function () { 
+        temp = document.getElementById("TemperatureConverterInput").value;
+        Celsius = document.getElementById("CelsiusOption").value;
+        Fahrenheit = document.getElementById("FahrenheitOption").value;
+        Kelvin = document.getElementById("KelvinOption").value;
+        SelectOption = document.getElementById("TemperatureConverterSelect").value
+
+        if (SelectOption == Celsius){
+            
+            temp = Number(temp)
+            temp = ToCelsius(temp);
+            document.getElementById("TemperatureConverter").innerHTML = temp + "°C";
+        }
+        else if (SelectOption == Fahrenheit) {
+            temp = Number(temp)
+            temp = ToFahrenheit(temp);
+            document.getElementById("TemperatureConverter").innerHTML = temp + "°F";
+        }
+        else if (SelectOption == Kelvin) {
+            temp = Number(temp)
+            temp = ToKelvin(temp);
+            document.getElementById("TemperatureConverter").innerHTML = temp + "°K";
+        }
+        else {
+            document.getElementById("TemperatureConverter").innerHTML = "Please select an option";
+        }
+    }
+} TemperatureConverter();
+
+/* Array 
+
+    - Arrays are a special type of objects.
+    - The typeof operator in JavaScript returns "object" for arrays.
+    - But, JavaScript arrays are best described as arrays.
+    - Arrays use numbers to access its "elements".
+    - In JavaScript, arrays use numbered indexes.
+    - In JavaScript, objects use named indexes.
+    - Arrays are a special type of objects, with numbered indexes.
+    - If you put a number in the square brackets, it will return the item at that position in the array.
+    - If you put a name in the square brackets, it will return the value associated with that name.
+    - Arrays are a special type of objects, with the predefined methods to work with arrays.    
+
+    - Thinks of it as a variable that can store multiple values
+
+    - Syntax:
+        let array_name = [item1, item2, ...]; // Array literal
+        let array_name = new Array(item1, item2, ...); // Array constructor
+    
+    - Array elements are accessed using their index number:
+        array_name[index]
+*/
+
+function array () {
+
+    
+
+} array();
+
+
+
+
+
