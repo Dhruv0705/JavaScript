@@ -29,6 +29,7 @@
         - Nested Loops
         - NestedLoopsRectangle
         - Functions
+        - Return Statement
 */
 
 
@@ -872,10 +873,44 @@ function NestedLoopsRectangle () {
 
 function Functions () {
     
-    function myFunction (a, b) {
-        return a * b;
+    function StartProgram() {
+        let Name = "Dhruv";
+        let Age = 21;
+
+        HappyBirthday(Name, Age);
     }
     
-    document.getElementById("Function").innerHTML = myFunction(4, 3);
+
+    function HappyBirthday (Name, Age) {
+        document.getElementById("HappyBirthday").innerHTML = "Happy Birthday to you!";
+        document.getElementById("HappyBirthday2").innerHTML += "<br>Happy Birthday to you!";
+        document.getElementById("HappyBirthday3").innerHTML += "<br>Happy Birthday dear " + Name + "!";
+        document.getElementById("HappyBirthday4").innerHTML += "<br>Happy Birthday to you!";
+        document.getElementById("HappyBirthday5").innerHTML = "<br>Happy Birthday " + Name + "! You are " + Age + " years old!";
+    }
+    
+    StartProgram();
     
 } Functions();
+
+/* Return Statement
+
+    - The return statement stops the execution of a function and returns a value from that function.
+    - Syntax:
+        return expression;
+*/
+
+function ReturnStatement () {
+    
+    let area;
+    let width;
+    let height;
+
+    function AreaOfRectangle (width, height) {
+        document.getElementById("Area").innerHTML = 
+        
+    document.getElementById("ReturnStatement").innerHTML = Add(5, 10);
+    
+    } 
+
+}ReturnStatement();
