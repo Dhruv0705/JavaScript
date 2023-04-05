@@ -1,6 +1,5 @@
-// Comment
-
-
+// Comment: JavaScript BroCode Course Notes 
+//  [https://www.youtube.com/watch?v=8dWL3wF_OMw&list=PLkaAnX8EBiSZNUEla5yAVgqsmX0GSAbpv&index=1&t=0s]
 /* 
     Table of Contents: 
 
